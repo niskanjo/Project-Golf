@@ -18,7 +18,7 @@ public class BallLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Physics.AddForce(Force);
         if (Input.GetMouseButtonDown(0) == true)
         {
             StartPosition.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
@@ -33,10 +33,10 @@ public class BallLauncher : MonoBehaviour
             Debug.Log("Left mouse button released at x = " + EndPosition.x + ", y = " + EndPosition.y);
 
         }
+
+        Force = (EndPosition - StartPosition) * -1;
+        Debug.Log("Force: " + Force);
+
     }
 
-    public void Launcher()
-    {
-
-    }
 }
